@@ -14,14 +14,14 @@ var enemyAttack = 12;
 // }
 
 var fight = function(enemyName) {
-    window.alert("Welcome to Robot Gladiators!");
+  while(enemyHealth > 0) {
     var promptFight = window.prompt("Would you like to FIGHT or SKIP this battle? Enter 'FIGHT' or 'SKIP' to choose.");
 
-if (promptFight === "fight" || promptFight === "FIGHT") {
-    enemyHealth = enemyHealth - playerAttack;
-    console.log(
-      playerName + " attacked " + enemyName + ". " + enemyName + " now has " + enemyHealth + " health remaining."
-    );
+  if (promptFight === "fight" || promptFight === "FIGHT") {
+      enemyHealth = enemyHealth - playerAttack;
+      console.log(
+        playerName + " attacked " + enemyName + ". " + enemyName + " now has " + enemyHealth + " health remaining."
+      );
 
     if (enemyHealth <= 0) {
       window.alert(enemyName + " has died!");
@@ -54,7 +54,10 @@ if (promptFight === "fight" || promptFight === "FIGHT") {
   } else {
     window.alert("You need to choose a valid option. Try again!");
   }
+}
 };
 for(var i = 0; i < enemyNames.length; i++) {
+  var pickedEnemyName = enemyNames[i];
+  enemyHealth = 50;
   fight(enemyNames[i])
 }
